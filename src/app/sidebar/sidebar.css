@@ -1,0 +1,81 @@
+body{
+  background-color: #ddd;
+  font-size: 1.5em;
+  font-family: Georgia, serif;
+}
+.sidebar{
+  @include box-sizing(border-box);
+  float: left;
+  width: 18%;
+  border-right:1px solid #3a3f51;
+  background-color: #23b7e5;
+  position: absolute;
+  top: 0;
+  left:0;
+  bottom: 0;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+  height: 100%;
+}
+
+.sidebar-header {
+    background-image: url(assets/images/gravy.jpg);
+    position: relative;
+	height: 150px;
+	float:left;
+	width: 100%;
+}
+
+.header-cover {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size:cover;
+ }
+ .profile{
+ 	width: 100%;
+ 	text-align: center;
+ 	color: #4b4b4b;
+ }
+ .profile img{
+ 	width: 30%;
+ 	margin-top: 5px;
+ }
+ .top-bar{
+ 	margin-top: 10px;
+ 	width: 100%;
+ 	float: left;
+ }
+
+ .top-bar ul{
+ 	width: 100%;
+ 	padding: 0;
+ }
+ .top-bar ul li{
+	list-style-type: none;
+	line-height: 40px; 
+ }
+ .top-bar ul a{
+ 	width: 100%;
+ 	font-size: 14px; 
+ 	color: #fff;
+ 	text-decoration: none;
+ }
+
+ .top-bar ul a:hover{ 
+ 	background-color: #a2a2a2;
+ }
+ .top-bar ul button{
+ 	width: 100%;
+ 	background: #23b7e5;
+ 	border-radius: 0px;
+ 	border: 1px solid #23b7e0;
+ 	margin-top: 2px;
+ 	text-align: left;
+ }
+  .top-bar ul button:hover{
+  	background: #3498db;
+ 	border-radius: 0px;
+ 	border: 1px solid #3498db;
+ }
