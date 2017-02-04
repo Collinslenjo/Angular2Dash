@@ -41,6 +41,8 @@ import { AccountComponent } from './account/account.component';
   {path: 'login',component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'dashboard', component: DashboardComponent},
+  {path: 'send', component: SendMoneyComponent},
+  {path: 'activity', component: ActivityComponent},
 ])
   ],
   providers: [],
