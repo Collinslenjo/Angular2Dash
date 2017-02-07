@@ -16,6 +16,8 @@ import { HelpComponent } from './help/help.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { AccountComponent } from './account/account.component';
+import { CustomerComponent } from './customer/customer.component';
+import { GuideComponent } from './guide/guide.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { AccountComponent } from './account/account.component';
     ContactsComponent,
     CalculatorComponent,
     AccountComponent,
+    CustomerComponent,
+    GuideComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,11 @@ import { AccountComponent } from './account/account.component';
   {path: 'dashboard', component: DashboardComponent},
   {path: 'send', component: SendMoneyComponent},
   {path: 'activity', component: ActivityComponent},
+  {path: 'calculator', component: CalculatorComponent},
+  {path: 'contacts', component: ContactsComponent},
+  {path: 'customer', component: CustomerComponent},
+  {path: 'terms', component: HelpComponent},
+  {path: 'guide', component: GuideComponent},
 ])
   ],
   providers: [],

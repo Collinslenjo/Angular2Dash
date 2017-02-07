@@ -1,27 +1,47 @@
+<sidebar></sidebar>
 <div class="contact">
 	<div class="panel">
 		<div class="panel-header">
-			<h3>Contacts list</h3>
-
-<h3>UI Grid</h3>
-<div class="container-fluid" ng-controller="UIGridController as table">
-   <h4 class="page-header mt0">Basic</h4>
-   <div class="table-uigrid" ui-grid="table.gridOptions"></div>
-   <h4 class="page-header clearfix">
-      <div class="pull-left">Filter and Footer</div>
-      <div class="pull-right">
-         <button class="btn btn-xs btn-success" id="footerButton" ng-click="table.gridOptionsComplex.showGridFooter = !table.gridOptionsComplex.showGridFooter; $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.OPTIONS);">Toggle Grid Footer</button>
-         <button class="btn btn-xs btn-success" ng-click="table.gridOptionsComplex.showColumnFooter = !table.gridOptionsComplex.showColumnFooter; $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.OPTIONS);">Toggle Column Footer</button>
-      </div>
-   </h4>
-   <div class="table-uigrid" id="uigrid-demo" ui-grid="table.gridOptionsComplex"></div>
-   <h4 class="page-header">Pagination</h4>
-   <div class="table-uigrid" ui-grid="table.gridOptions1" ui-grid-pagination=""></div>
-   <h4 class="page-header">Selection and column visibility</h4>
-   <div class="table-uigrid" ui-grid="table.gridOptions2" ui-grid-selection="ui-grid-selection"></div>
+			<h3>Contacts list</h3>		
+		</div>
+      <div class="col-md-12">
+  <p>The table-condensed class makes a table more compact by cutting cell padding in half:</p>            
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td>Ksh.100</td>
+        <td>12/Feb/2017</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+        <td>Ksh.100</td>
+        <td>12/Jan/2016</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+        <td>Ksh.100</td>
+        <td>12/Dec/2016</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-			
-		</div>
+
 	</div>
 </div>
