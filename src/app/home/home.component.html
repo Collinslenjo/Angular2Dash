@@ -7,165 +7,47 @@
 		</div>
 	</div>
 
-	<div class="container">
-  <div class="widget">
-    
-    <div class="section section-graph">
-      <div class="graph-info">
-        <i class="graph-arrow"></i>
-        <span class="graph-info-big">634.39</span>
-        <span class="graph-info-small">+2.18 (3.71%)</span>
-      </div>
-      <div id="graph"></div>
-    </div>
-    
-    <div class="section section-info">
-      <span class="info-time">Today 2:25 PM</span>
-      <h3 class="info-title">GetPaid City, Nairobi</h3>
-      
-      <div class="info-block">
-        <dl>
-          <dt>13.5 M</dt>
-          <dd>Shares Traded</dd>
-        </dl>
-      </div>
-      
-      <div class="info-block last">
-        <dl>
-          <dt>28.44</dt>
-          <dd>Market Cap</dd>
-        </dl>
-      </div>
-      
-      <div class="info-aapl">
-        <h4>AAPL</h4>
-        <ul>
-          <li><span class="orange" style="height: 37.5%"></span></li>
-          <li><span class="orange" style="height: 47.5%"></span></li>
-          <li><span class="orange" style="height: 70%"></span></li>
-          <li><span class="orange" style="height: 85%"></span></li>
-          <li><span class="orange" style="height: 40%"></span></li>
-          <li><span class="green" style="height: 75%"></span></li>
-          <li><span class="green" style="height: 50%"></span></li>
-          <li><span class="green" style="height: 15%"></span></li>
-          <li><span class="green" style="height: 25%"></span></li>
-        </ul>
-      </div>
-      
-      <div class="yearly-change">
-        <h4>Yearly Change</h4>
-        <span><em>+</em> 127.01</span>
-      </div>
-    </div>
-    <div class="section"></div>
-  </div>
-</div>
+<!-- This is where my graph starts-->
 
+<canvas id="line" class="chart chart-line" chart-data="data"
+chart-labels="labels" chart-series="series" chart-options="options"
+chart-dataset-override="datasetOverride" chart-click="onClick">
+</canvas>
 <script>
-	$(function () {
-  
-  function generateNumber(min, max) {
-    min = typeof min !== 'undefined' ? min : 1;
-    max = typeof max !== 'undefined' ? max : 100;
-    
-    return Math.floor((Math.random() * max) + min);
-  }
-  
-  var chart,
-      categories = ['Categorie 1', 'Categorie 2', 'Categorie 3', 'Categorie 4', 'ategorie 5','Categorie 6', 'ategorie 7', 'Categorie 8', 'Categorie 9', 'Categorie 10', 'Categorie 11', 'Categorie 12', 'Categorie 13', 'Categorie 14', 'Categorie 15', 'Categorie 16', 'Categorie 17', 'Categorie 18', 'Categorie 19','Categorie 20', 'Categorie 21','Categorie 22', 'Categorie 23', 'Categorie 24', 'Categorie 25', 'Categorie 26', 'Categorie 27', 'Categorie 28', 'Categorie 29', 'Categorie 30'],
-      serie1 = [13, 13, 46, 61, 23,12, 24, 16, 14, 12, 12, 24, 19, 13, 11, 11, 14, 11, 11, 11, 11, 13, 22, 10, 18, 15, 24, 31, 19, 10],
-      serie2 = [52, 41, 58, 63, 55, 46, 45, 41, 38, 54, 50, 39, 48, 70, 63, 60, 58, 63, 83, 89, 83, 79, 83, 100, 104, 108, 52, 46, 83, 89],
-      $aapls;
-  
-  $(document).ready(function() {
+	angular.module("app", ["chart.js"]).controller("LineCtrl", function ($scope) {
 
-    chart = new Highcharts.Chart({
-      chart: {
-        renderTo: 'graph',
-        type: 'column',
-        backgroundColor: 'transparent',
-        height: 151,
-        marginLeft: 3,
-        marginRight: 3,
-        marginBottom: 0,
-        marginTop: 0
-      },
-      title: {
-        text: ''
-      },
-      xAxis: {
-        lineWidth: 0,
-        tickWidth: 0,
-        labels: { 
-          enabled: false 
+  $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+  $scope.series = ['Series A', 'Series B'];
+  $scope.data = [
+    [65, 59, 80, 81, 56, 55, 40],
+    [28, 48, 40, 19, 86, 27, 90]
+  ];
+  $scope.onClick = function (points, evt) {
+    console.log(points, evt);
+  };
+  $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
+  $scope.options = {
+    scales: {
+      yAxes: [
+        {
+          id: 'y-axis-1',
+          type: 'linear',
+          display: true,
+          position: 'left'
         },
-        categories: categories
-      },
-      yAxis: {
-        labels: { 
-          enabled: false 
-        },
-        gridLineWidth: 0,
-        title: {
-          text: null,
-        },
-      },
-      series: [{
-        name: 'Awesomness',
-        data: serie1
-      }, {
-        name: 'More Awesomness',
-        color: '#fff',
-        type: 'line',
-        data: serie2
-      }],
-      credits: { 
-        enabled: false 
-      },
-      legend: { 
-        enabled: false 
-      },
-      plotOptions: {
-        column: {
-          borderWidth: 0,
-          color: '#3d9e68',
-          shadow: false
-        },
-        line: {
-          marker: { 
-            enabled: false 
-          },
-          lineWidth: 3
+        {
+          id: 'y-axis-2',
+          type: 'linear',
+          display: true,
+          position: 'right'
         }
-      },
-      tooltip: { 
-        enabled: false
-      }
-    });
-      
-    setInterval(function() {
-      chart.series[0].addPoint(generateNumber(), true, true);
-      chart.series[1].addPoint(generateNumber(50, 150), true, true);
-    }, 1000);
-    
-    
-  
-    setInterval(function() {
-      $('.info-aapl span').each(function(index, elem) {
-        $(elem).animate({
-          height: generateNumber(1, 40)
-        });
-      });
-
-    }, 3000);
-  });
-  
+      ]
+    }
+  };
 });
 </script>
 
-
-
-​
+<!-- This is where my graph ends-->
 ​
 <div class="container scrollable">
 	<div id="static" class="invoice-holder clearfix">
