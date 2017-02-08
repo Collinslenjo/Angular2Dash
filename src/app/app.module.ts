@@ -18,7 +18,7 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { AccountComponent } from './account/account.component';
 import { CustomerComponent } from './customer/customer.component';
 import { GuideComponent } from './guide/guide.component';
-
+import { GraphComponent } from './graph/graph.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +36,7 @@ import { GuideComponent } from './guide/guide.component';
     AccountComponent,
     CustomerComponent,
     GuideComponent,
+    GraphComponent,
   ],
   imports: [
     BrowserModule,
