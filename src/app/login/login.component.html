@@ -3,13 +3,13 @@
 		<div class="col-lg-4 col-lg-offset-4">
         	 <img src="assets/images/flat-avatar.png" class="user-avatar" /> 
 			<h1>Login<small>Here</small></h1>
-			<form>
+			<form role="form" (submit)="login($event, username.value, password.value)">
 				<div class="form-content">
 					<div class="form-group">
-						<input type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
+						<input type="text" class="form-control input-underline input-lg" #username id="username" placeholder="Email or Username">
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control input-underline input-lg" id="" placeholder="Password" >
+						<input type="password" class="form-control input-underline input-lg" #password id="password" placeholder="Password" >
 					</div>
 				</div>
 				<button type="submit" class="btn rounded-btn btn-success" routerLink="/dashboard" routerLinkActive="active"> Log in </button>
