@@ -53,7 +53,7 @@ import { routes } from './app.routes';
     })
   ],
   providers: [
-  AuthGuard, ...AUTH_PROVIDERS
+  AuthGuard, AUTH_PROVIDERS
   ],
   bootstrap: [AppComponent]
 })
