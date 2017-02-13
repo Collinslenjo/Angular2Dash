@@ -6,19 +6,19 @@
 			<form role="form">
 				<div class="form-content">
           <div class="form-group">
-						<input type="text" class="form-control input-underline input-lg" #username id="username" placeholder="UserName">
+						<input type="text" class="form-control input-underline input-lg" ng-model="username" id="username" placeholder="UserName" required>
 					</div>
           <div class="form-group">
-						<input type="email" class="form-control input-underline input-lg" id="" placeholder="Email">
+						<input type="email" class="form-control input-underline input-lg" ng-model="email" placeholder="Email" required>
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+						<input type="password" class="form-control input-underline input-lg" ng-model="password" placeholder="Password" required>
 					</div>
           <div class="form-group">
-						<input type="password" class="form-control input-underline input-lg" #password id="password" placeholder="ConfirmPassword">
+						<input type="password" class="form-control input-underline input-lg" ng-model="password" id="password" placeholder="ConfirmPassword" required>
 					</div>
 				</div>
-				<button type="submit" class="btn rounded-btn btn-primary">Register</button>
+				<button type="submit" class="btn rounded-btn btn-primary" ng-click="submit()">Register</button>
 			</form>
 			<br>or<br>
 				<a routerLink="/login" routerLinkActive="active">Login</a>
