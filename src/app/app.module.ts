@@ -33,7 +33,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
      }), http, options);
 }
 
-
 @NgModule({
   declarations: [
     AppComponent,

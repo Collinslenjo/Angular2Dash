@@ -10,8 +10,10 @@ import { contentHeaders } from '../common/headers';
 })
 
 export class LoginComponent {
-	constructor(public router: Router, public http: Http) {
-  }
+	constructor(
+		public router: Router, 
+		public http: Http
+		) {}
 
   login(event, username, password) {
     event.preventDefault();
@@ -33,4 +35,5 @@ export class LoginComponent {
     event.preventDefault();
     this.router.navigate(['register']);
   }
+
 }
