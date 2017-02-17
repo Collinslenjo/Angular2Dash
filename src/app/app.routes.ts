@@ -13,18 +13,17 @@ import { AccountComponent } from './account/account.component';
 import { CustomerComponent } from './customer/customer.component';
 import { GuideComponent } from './guide/guide.component';
 import { GraphComponent } from './graph/graph.component';
-import { AuthGuard } from './common/auth.guard';
 
 export const routes: Routes = [
-  { path: '',  redirectTo: 'login', pathMatch: 'full' },
-  {path: 'login',component: LoginComponent},
+  {path: 'login',component: LoginComponent, useAsDefault: true},
   {path: 'register', component: RegisterComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
-  {path: 'send', component: SendMoneyComponent, canActivate: [AuthGuard]},
-  {path: 'activity', component: ActivityComponent, canActivate: [AuthGuard]},
-  {path: 'calculator', component: CalculatorComponent, canActivate: [AuthGuard]},
-  {path: 'contacts', component: ContactsComponent, canActivate: [AuthGuard]},
-  {path: 'customer', component: CustomerComponent, canActivate: [AuthGuard]},
-  {path: 'terms', component: HelpComponent, canActivate: [AuthGuard]},
-  {path: 'guide', component: GuideComponent, canActivate: [AuthGuard]}
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'send', component: SendMoneyComponent},
+  {path: 'activity', component: ActivityComponent},
+  {path: 'calculator', component: CalculatorComponent},
+  {path: 'contacts', component: ContactsComponent},
+  {path: 'customer', component: CustomerComponent},
+  {path: 'terms', component: HelpComponent},
+  {path: 'guide', component: GuideComponent},
+  {path: '**', component: LoginComponent}
 ];

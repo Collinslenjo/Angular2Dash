@@ -1,11 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, Http, RequestOptions } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
-import { provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
-
-import { AuthGuard } from './common/auth.guard';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -22,16 +19,10 @@ import { AccountComponent } from './account/account.component';
 import { CustomerComponent } from './customer/customer.component';
 import { GuideComponent } from './guide/guide.component';
 import { GraphComponent } from './graph/graph.component';
+import { AuthService } from './services/auth.service';
 
 import { routes } from './app.routes';
 
-export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig({
-    tokenName: 'token',
-          tokenGetter: (() => localStorage.getItem('token')),
-          globalHeaders: [{'Content-Type':'application/json'}],
-     }), http, options);
-}
 
 @NgModule({
   declarations: [
@@ -55,17 +46,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes, {
-      useHash: true
-    })
+    RouterModule.forRoot(routes)
   ],
   providers: [
-  {
-      provide: AuthHttp,
-      useFactory: authHttpServiceFactory,
-      deps: [ Http, RequestOptions ]
-    },
-    AuthGuard
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

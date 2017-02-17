@@ -1,39 +1,30 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { Http,Response } from '@angular/http';
-import { contentHeaders } from '../common/headers';
-import 'rxjs/add/operator/map';
 
 @Component({
 	selector: 'login',
 	templateUrl: 'login.component.html',
-	styleUrls: ['login.css']
+	styleUrls: ['login.css'],
+	providers: [AuthService]
 })
 
 export class LoginComponent {
+	localUser = {
+		email : '',
+		password: ''
+	};
 	constructor(
-		public router: Router, 
-		public http: Http
-		) {}
+		private _service: AuthService,
+		private _router: Router
+	) {}
 
-  login(event, email, password) {
-    event.preventDefault();
-    let body = JSON.stringify({ email, password });
-    this.http.post('http://localhost:8000/api/login', body, { headers: contentHeaders })
-      .subscribe(
-        response => {
-          localStorage.setItem('id_token', response.json().id_token);
-          this.router.navigate(['/dashboard']);
-        },
-        error => {
-          alert(error.text());
-          console.log(error.text());
-        }
-      );
-  }
-
-  signup(event) {
-    event.defaultPrevented();
-    this.router.navigate(['register']);
-  }
+	login() {
+		this._service.loginfn(this.localUser).then((res) => {
+			if(res)
+			this._router.navigate(['dashboard']);
+			else
+			console.log(res);
+		})
+	}
 }
