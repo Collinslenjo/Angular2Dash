@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Http } from '@angular/http';
+import { Http,Response } from '@angular/http';
 import { contentHeaders } from '../common/headers';
+import 'rxjs/add/operator/map';
 
 @Component({
 	selector: 'login',
@@ -15,14 +16,14 @@ export class LoginComponent {
 		public http: Http
 		) {}
 
-  login(event, username, password) {
+  login(event, email, password) {
     event.preventDefault();
-    let body = JSON.stringify({ username, password });
-    this.http.post('http://localhost:8000/api/request/payment/checkout', body, { headers: contentHeaders })
+    let body = JSON.stringify({ email, password });
+    this.http.post('http://localhost:8000/api/login', body, { headers: contentHeaders })
       .subscribe(
         response => {
           localStorage.setItem('id_token', response.json().id_token);
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['/dashboard']);
         },
         error => {
           alert(error.text());
@@ -32,8 +33,7 @@ export class LoginComponent {
   }
 
   signup(event) {
-    event.preventDefault();
+    event.defaultPrevented();
     this.router.navigate(['register']);
   }
-
 }

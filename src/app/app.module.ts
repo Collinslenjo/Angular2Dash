@@ -64,7 +64,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
       deps: [ Http, RequestOptions ]
-    }
+    },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

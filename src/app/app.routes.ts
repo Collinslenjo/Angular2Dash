@@ -16,7 +16,7 @@ import { GraphComponent } from './graph/graph.component';
 import { AuthGuard } from './common/auth.guard';
 
 export const routes: Routes = [
-  { path: '',       component: LoginComponent },
+  { path: '',  redirectTo: 'login', pathMatch: 'full' },
   {path: 'login',component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
@@ -26,6 +26,5 @@ export const routes: Routes = [
   {path: 'contacts', component: ContactsComponent, canActivate: [AuthGuard]},
   {path: 'customer', component: CustomerComponent, canActivate: [AuthGuard]},
   {path: 'terms', component: HelpComponent, canActivate: [AuthGuard]},
-  {path: 'guide', component: GuideComponent, canActivate: [AuthGuard]},
-  { path: '**',     component: LoginComponent },
+  {path: 'guide', component: GuideComponent, canActivate: [AuthGuard]}
 ];
