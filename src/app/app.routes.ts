@@ -15,7 +15,7 @@ import { GuideComponent } from './guide/guide.component';
 import { GraphComponent } from './graph/graph.component';
 
 export const routes: Routes = [
-  {path: 'login',component: LoginComponent, useAsDefault: true},
+  {path: 'login',component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'send', component: SendMoneyComponent},
