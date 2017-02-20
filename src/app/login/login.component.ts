@@ -13,7 +13,8 @@ export class LoginComponent {
 	localUser = {
 		email : '',
 		password: ''
-	};
+	}
+
 	constructor(
 		private _service: AuthService,
 		private _router: Router
