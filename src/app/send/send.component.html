@@ -23,7 +23,15 @@
           <br>
     	 <div class="input-group">
             <span class="input-group-addon">$</span>
-            <input type="text" class="form-control" placeholder="Currency">
+            <div class="col-md-4">
+    <select id="blood_group" name="currency" class="form-control">
+      <option value="-1">Choose your currency</option>
+      <option value="1">USD</option>
+      <option value="2">KSH</option>
+      <option value="3">UAE</option>
+      <option value="4">TSH</option>
+    </select>
+  </div>
           </div>
           <br>
           <div class="input-group">
@@ -32,7 +40,7 @@
           </div>
           <br>
           <div class="form-group">
-  			<label for="comment">Reason:</label>
+  			<label for="comment">Summary of the transaction (optional):</label>
   			<textarea class="form-control" rows="5" id="comment"></textarea>
 		</div>
           <br>
